@@ -7,7 +7,7 @@ public class currencyConverter {
     public static void main(String[] args) throws Exception {
 
         Scanner input = new Scanner(System.in);
-        String userChoice = "";
+        int userChoice = 0;
 
         System.out.println("Welcome to Chris's Currency Converter!\n" +
         "Choose a currency you want to convert");
@@ -22,6 +22,12 @@ public class currencyConverter {
         System.out.println("9 - Indian Rupee");
         System.out.println("10 - exit");
         
-        userChoice = input.next();
+        userChoice = input.nextInt();
+
+        switch(userChoice){
+            case 1:
+                
+
+        }
     }
 }
