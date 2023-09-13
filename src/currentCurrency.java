@@ -1,388 +1,188 @@
+import java.util.HashMap;
+import java.util.Map;
+
+
 public class currentCurrency {
 
     String currency;
     String currencyCode;
+    Map<String, Double> conversions;
 
     currentCurrency(String currency, String currencyCode){
         this.currency = currency;
         this.currencyCode = currencyCode;
-        
-    }
-
-    public double setConversionToUSD(String currencyCode){
-        
-        double conversionRate = 0;
-
-        switch(currency){
+        switch(currencyCode){
             case "USD":
-                conversionRate = 0;
-                break;
+                this.conversions = getConvertToUSD();
             case "GBP":
-                conversionRate = 1.25;
-                break;
+                this.conversions = getConvertToGBP();
             case "ZAR":
-                conversionRate = 0.053;
-                break;
+                this.conversions = getConvertToZAR();
             case "EUR":
-                conversionRate = 1.07;
-                break;
+                this.conversions = getConvertToEUR();
             case "AUD":
-                conversionRate = 0.64;
-                break;
+                this.conversions = getConvertToAUD();
             case "JPY":
-                conversionRate = 0.0068;
-                break;
+                this.conversions = getConvertToJPY();
             case "CNY":
-                conversionRate = 0.14;
-                break;
+                this.conversions = getConvertToCNY();
             case "CAD":
-                conversionRate = 0.74;
-                break;
+                this.conversions = getConvertToCAD();
             case "INR":
-                conversionRate = 0.012;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
-
+                this.conversions = getConvertToINR();
         }
-
-        return conversionRate;
-
-
         
     }
 
-    public double setConversionToGBP(String currencyCode){
+    public Map<String, Double> getConvertToUSD(){
         
-        double conversionRate = 0;
+        Map<String, Double> USDConversions = new HashMap<>();
 
-        switch(currency){
-            case "USD":
-                conversionRate = 0.8;
-                break;
-            case "GBP":
-                conversionRate = 0;
-                break;
-            case "ZAR":
-                conversionRate = 0.043;
-                break;
-            case "EUR":
-                conversionRate = 0.86;
-                break;
-            case "AUD":
-                conversionRate = 0.51;
-                break;
-            case "JPY":
-                conversionRate = 0.0054;
-                break;
-            case "CNY":
-                conversionRate = 0.11;
-                break;
-            case "CAD":
-                conversionRate = 0.59;
-                break;
-            case "INR":
-                conversionRate = 0.0097;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
-        }
-        return conversionRate;
+        USDConversions.put("GBP", 1.25);
+        USDConversions.put("ZAR", 0.053);
+        USDConversions.put("EUR", 1.07);
+        USDConversions.put("AUD", 0.64);
+        USDConversions.put("JPY", 0.0068);
+        USDConversions.put("CNY", 0.14);
+        USDConversions.put("CAD", 0.74);
+        USDConversions.put("INR", 0.012);
+
+        return USDConversions;
+
+    } 
+
+    public Map<String, Double> getConvertToGBP(){
+        
+        Map<String, Double> GBPConversions = new HashMap<>();
+
+        GBPConversions.put("USD", 0.8);
+        GBPConversions.put("ZAR", 0.043);
+        GBPConversions.put("EUR", 0.86);
+        GBPConversions.put("AUD", 0.51);
+        GBPConversions.put("JPY", 0.0054);
+        GBPConversions.put("CNY", 0.11);
+        GBPConversions.put("CAD", 0.59);
+        GBPConversions.put("INR", 0.0097);
+
+        return GBPConversions;
+
     }
-    public double setConversionToZAR(String currencyCode){
+    public Map<String, Double> getConvertToZAR(){
         
-        double conversionRate = 0;
+        Map<String, Double> ZARConversions = new HashMap<>();
 
-        switch(currency){
-            case "USD":
-                conversionRate = 18.79;
-                break;
-            case "GBP":
-                conversionRate = 23.47;
-                break;
-            case "ZAR":
-                conversionRate = 0;
-                break;
-            case "EUR":
-                conversionRate = 20.17;
-                break;
-            case "AUD":
-                conversionRate = 12.06;
-                break;
-            case "JPY":
-                conversionRate = 0.13;
-                break;
-            case "CNY":
-                conversionRate = 2.58;
-                break;
-            case "CAD":
-                conversionRate = 13.89;
-                break;
-            case "INR":
-                conversionRate = 0.23;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
+        ZARConversions.put("USD", 18.79);
+        ZARConversions.put("GBP", 23.47);
+        ZARConversions.put("EUR", 20.17);
+        ZARConversions.put("AUD", 12.06);
+        ZARConversions.put("JPY", 0.13);
+        ZARConversions.put("CNY", 2.58);
+        ZARConversions.put("CAD", 13.89);
+        ZARConversions.put("INR", 0.23);
 
-        }
-
-        return conversionRate;
-
-
-        
+        return ZARConversions;
     }
-    public double setConversionToEUR(String currencyCode){
+    public Map<String, Double> getConvertToEUR(){
         
-        double conversionRate = 0;
+        Map<String, Double> EURConversions = new HashMap<>();
 
-        switch(currency){
-            case "USD":
-                conversionRate = 0.93;
-                break;
-            case "GBP":
-                conversionRate = 1.16;
-                break;
-            case "ZAR":
-                conversionRate = 0.05;
-                break;
-            case "EUR":
-                conversionRate = 0;
-                break;
-            case "AUD":
-                conversionRate = 0.6;
-                break;
-            case "JPY":
-                conversionRate = 0.0063;
-                break;
-            case "CNY":
-                conversionRate = 0.13;
-                break;
-            case "CAD":
-                conversionRate = 0.69;
-                break;
-            case "INR":
-                conversionRate = 0.011;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
+        EURConversions.put("USD", 0.93);
+        EURConversions.put("GBP", 1.16);
+        EURConversions.put("ZAR", 0.05);
+        EURConversions.put("AUD", 0.6);
+        EURConversions.put("JPY", 0.0063);
+        EURConversions.put("CNY", 0.13);
+        EURConversions.put("CAD", 0.69);
+        EURConversions.put("INR", 0.011);
 
-        }
+        return EURConversions;
 
-        return conversionRate;
+    } 
 
-
+    public Map<String, Double> getConvertToAUD(){
         
-    }
-    public double setConversionToAUD(String currencyCode){
+        Map<String, Double> AUDConversions = new HashMap<>();
+
+        AUDConversions.put("USD", 1.56);
+        AUDConversions.put("GBP", 1.94);
+        AUDConversions.put("ZAR", 0.083);
+        AUDConversions.put("EUR", 1.67);
+        AUDConversions.put("JPY", 0.011);
+        AUDConversions.put("CNY", 0.14);
+        AUDConversions.put("CAD", 0.21);
+        AUDConversions.put("INR", 0.019);
+
+        return AUDConversions;
+
+    } 
+   
+    public Map<String, Double> getConvertToJPY(){
         
-        double conversionRate = 0;
+        Map<String, Double> JPYConversions = new HashMap<>();
 
-        switch(currency){
-            case "USD":
-                conversionRate = 1.56;
-                break;
-            case "GBP":
-                conversionRate = 1.94;
-                break;
-            case "ZAR":
-                conversionRate = 0.083;
-                break;
-            case "EUR":
-                conversionRate = 1.67;
-                break;
-            case "AUD":
-                conversionRate = 0;
-                break;
-            case "JPY":
-                conversionRate = 0.011;
-                break;
-            case "CNY":
-                conversionRate = 0.14;
-                break;
-            case "CAD":
-                conversionRate = 0.21;
-                break;
-            case "INR":
-                conversionRate = 0.019;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
+        JPYConversions.put("USD", 147.45);
+        JPYConversions.put("GBP", 184.26);
+        JPYConversions.put("ZAR", 7.85);
+        JPYConversions.put("EUR", 158.39);
+        JPYConversions.put("AUD", 94.79);
+        JPYConversions.put("CNY", 20.27);
+        JPYConversions.put("CAD", 108.98);
+        JPYConversions.put("INR", 1.78);
 
-        }
+        return JPYConversions;
 
-        return conversionRate;
-
-
+    } 
+ 
+    public Map<String, Double> getConvertToCNY(){
         
-    }
-    public double setConversionToJPY(String currencyCode){
+        Map<String, Double> CNYConversions = new HashMap<>();
+
+        CNYConversions.put("USD", 7.27);
+        CNYConversions.put("GBP", 9.09);
+        CNYConversions.put("ZAR", 0.39);
+        CNYConversions.put("EUR", 7.82);
+        CNYConversions.put("AUD", 4.68);
+        CNYConversions.put("JPY", 0.049);
+        CNYConversions.put("CAD", 5.38);
+        CNYConversions.put("INR", 0.088);
+
+        return CNYConversions;
+
+    } 
+
+    public Map<String, Double> getConvertToCAD(){
         
-        double conversionRate = 0;
+        Map<String, Double> CADConversions = new HashMap<>();
 
-        switch(currency){
-            case "USD":
-                conversionRate = 147.45;
-                break;
-            case "GBP":
-                conversionRate = 184.26;
-                break;
-            case "ZAR":
-                conversionRate = 7.85;
-                break;
-            case "EUR":
-                conversionRate = 158.39;
-                break;
-            case "AUD":
-                conversionRate = 94.79;
-                break;
-            case "JPY":
-                conversionRate = 0;
-                break;
-            case "CNY":
-                conversionRate = 20.27;
-                break;
-            case "CAD":
-                conversionRate = 108.98;
-                break;
-            case "INR":
-                conversionRate = 1.78;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
+        CADConversions.put("USD", 1.35);
+        CADConversions.put("GBP", 1.69);
+        CADConversions.put("ZAR", 0.072);
+        CADConversions.put("EUR", 1.45);
+        CADConversions.put("AUD", 0.87);
+        CADConversions.put("JPY", 0.0092);
+        CADConversions.put("CNY", 0.19);
+        CADConversions.put("INR", 0.016);
 
-        }
+        return CADConversions;
 
-        return conversionRate;
+    } 
 
-
+    public Map<String, Double> getConvertToINR(){
         
-    }
-    public double setConversionToCNY(String currencyCode){
-        
-        double conversionRate = 0;
+        Map<String, Double> INRConversions = new HashMap<>();
 
-        switch(currency){
-            case "USD":
-                conversionRate = 0;
-                break;
-            case "GBP":
-                conversionRate = 1.25;
-                break;
-            case "ZAR":
-                conversionRate = 0.053;
-                break;
-            case "EUR":
-                conversionRate = 1.07;
-                break;
-            case "AUD":
-                conversionRate = 0.64;
-                break;
-            case "JPY":
-                conversionRate = 0.0068;
-                break;
-            case "CNY":
-                conversionRate = 0.14;
-                break;
-            case "CAD":
-                conversionRate = 0.74;
-                break;
-            case "INR":
-                conversionRate = 0.012;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
+        INRConversions.put("USD", 82.91);
+        INRConversions.put("GBP", 103.61);
+        INRConversions.put("ZAR", 4.42);
+        INRConversions.put("EUR", 89.07);
+        INRConversions.put("AUD", 53.32);
+        INRConversions.put("JPY", 0.56);
+        INRConversions.put("CNY", 11.4);
+        INRConversions.put("CAD", 61.26);
 
-        }
+        return INRConversions;
 
-        return conversionRate;
-
-
-        
-    }
-    public double setConversionToCAD(String currencyCode){
-        
-        double conversionRate = 0;
-
-        switch(currency){
-            case "USD":
-                conversionRate = 0;
-                break;
-            case "GBP":
-                conversionRate = 1.25;
-                break;
-            case "ZAR":
-                conversionRate = 0.053;
-                break;
-            case "EUR":
-                conversionRate = 1.07;
-                break;
-            case "AUD":
-                conversionRate = 0.64;
-                break;
-            case "JPY":
-                conversionRate = 0.0068;
-                break;
-            case "CNY":
-                conversionRate = 0.14;
-                break;
-            case "CAD":
-                conversionRate = 0.74;
-                break;
-            case "INR":
-                conversionRate = 0.012;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
-
-        }
-
-        return conversionRate;
-
-
-        
-    }
-    public double setConversionToINR(String currencyCode){
-        
-        double conversionRate = 0;
-
-        switch(currency){
-            case "USD":
-                conversionRate = 0;
-                break;
-            case "GBP":
-                conversionRate = 1.25;
-                break;
-            case "ZAR":
-                conversionRate = 0.053;
-                break;
-            case "EUR":
-                conversionRate = 1.07;
-                break;
-            case "AUD":
-                conversionRate = 0.64;
-                break;
-            case "JPY":
-                conversionRate = 0.0068;
-                break;
-            case "CNY":
-                conversionRate = 0.14;
-                break;
-            case "CAD":
-                conversionRate = 0.74;
-                break;
-            case "INR":
-                conversionRate = 0.012;
-                break;
-            default:
-                System.out.println("There was an error getting the conversion rate.");
-
-        }
-
-        return conversionRate;
-
-
-        
-    }
+    } 
 
     public String getCurrency() {
         return currency;
