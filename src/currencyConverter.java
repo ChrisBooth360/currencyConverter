@@ -88,6 +88,26 @@ public class currencyConverter {
         System.out.println("10 - exit");
 
         userChoice = input.nextInt();
+
+        switch(userChoice){
+            case 1:
+                String exchangeRate = checkExchangeRate(currency, "USD");
+                System.out.println("The current exchange rate is " + exchangeRate);
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+            case 10:
+            default:
+        }
+
+    }
+    public static String checkExchangeRate(currentCurrency currency, String currencyCode){
+
         
 
     }
