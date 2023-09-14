@@ -1,6 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class currentCurrency {
 
     String currency;
@@ -89,5 +90,7 @@ public class currentCurrency {
     public void setCurrencyCode(String currencyCode) {
         this.currencyCode = currencyCode;
     }
+
+    
 
 }
